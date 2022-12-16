@@ -13,12 +13,15 @@ summary(data)
 colnames(data) <- c("gender", "age", "height", "initial.weight", 
                     "diet.type", "final.weight")
 data$diet.type <- factor(c("A", "B", "C")[data$diet.type])
+#Диеты привелись к нормальному типу
+
 #Изменим данные о гендере
 data$gender <- as.factor(data$gender)
 par(mfrow=c(1,2)) 
 data$gender <- factor(c("male", "female")[data$gender])
 summary(data)
-#Диеты привелись к нормальному типу
+#Гендеры привелись к нормальному типу
+
 #Добавим новую колонку - Похудение
 data$weight.loss = data$initial.weight - data$final.weight
 summary(data)
