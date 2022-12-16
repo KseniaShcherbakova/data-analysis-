@@ -53,9 +53,11 @@ aggregate(data$weight.loss, by = list(data$gender), FUN=sd)
 #тест на межгрупповые различия для диеты
 fit <- aov(weight.loss ~ diet.type, data=data)
 summary(fit)
+#тест показал, что для диеты есть зависимость - **
 #тест на межгрупповые различия для гендера
 fit <- aov(weight.loss ~ gender, data=data)
 summary(fit)
+#тест показал, что для гендера нет зависимости
 
 
 #попарные различия между средними значениями для всех групп
