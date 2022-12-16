@@ -90,17 +90,17 @@ cor(keep.row$whole_weight, predict3)
 plot(keep.row$whole_weight,predict3)
 
 #проверить качество прогноза
-total.predict.1 <- predict(keep.model.1, delete.row)
+total.predict.1 <- predict(keep.model.1, newdata = delete.row)
 cor(delete.row$whole_weight, total.predict.1)
 plot(delete.row$whole_weight, total.predict.1)
 
-total.predict.2 <- predict(keep.model.2, delete.row)
+total.predict.2 <- predict(keep.model.2, newdata = delete.row)
 cor(delete.row$whole_weight, total.predict.2)
 plot(delete.row$whole_weight, total.predict.2)
 
-#total.predict.3 <- predict(keep.model.3, delete.row)
-#cor(delete.row$whole_weight, total.predict.3)
-#plot(delete.row$whole_weight, total.predict.3)
+total.predict.3 <- predict(keep.model.3, newdata = delete.row)
+cor(delete.row$whole_weight, total.predict.3)
+plot(delete.row$whole_weight, total.predict.3)
 
 
 
