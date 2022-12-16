@@ -54,12 +54,7 @@ linear.model.3 <- lm(data$rings ~ data$whole_weight)
 summary(linear.model.3)
 plot(linear.model.3)
 
-#избавиться от выборосов, построить ещё модели и проверить их
-
-
-
-
-#разделить массив данных на 3 случайные части
+#разделить массив данных на 2 случайные части
 
 odds <- seq(1, nrow(data), by=2)
 keep.row <- data[odds,]
