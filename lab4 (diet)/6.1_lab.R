@@ -13,6 +13,10 @@ summary(data)
 colnames(data) <- c("gender", "age", "height", "initial.weight", 
                     "diet.type", "final.weight")
 data$diet.type <- factor(c("A", "B", "C")[data$diet.type])
+#Изменим данные о гендере
+data$gender <- as.factor(data$gender)
+par(mfrow=c(1,2)) 
+data$gender <- factor(c("male", "female")[data$gender])
 summary(data)
 #Диеты привелись к нормальному типу
 #Добавим новую колонку - Похудение
@@ -65,4 +69,6 @@ aggregate(data$weight.loss, by = list(data$gender), FUN=sd)
 #тест на межгрупповые различия
 fit <- aov(weight.loss ~ gender, data=data)
 summary(fit)
+#попарные различия между средними значениями для всех групп
+TukeyHSD(fit)
 
