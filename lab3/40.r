@@ -61,9 +61,12 @@ summary(model)
 predictions <- predict(model, newdata = df_test)
 
 # выводим различные метрики качества
+#install.packages("tidymodels")
+#install.packages("magrittr")
+#install.packages("dplyr")
+library(magrittr)
+library(dplyr)
+# выводим различные метрики качества
 library(broom)
 glance(model) %>%
-  dplyr::select(adj.r.squared, sigma, AIC, BIC, p.value)
-
-
-
+dplyr::select(adj.r.squared, sigma, AIC, BIC, p.value)
