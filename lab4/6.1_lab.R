@@ -69,3 +69,29 @@ library(multcomp)
 par(mar=c(5,4,6,2))
 tuk <- glht(fit, linfct=mcp(diet.type="Tukey"))
 plot(cld(tuk, level=.05),col="lightgrey")
+
+#Задания, которые надо попробовать выполнить 
+# paired t-test
+t.test(data$initial.weight, data$final.weight, paired = TRUE)
+
+# compute variable - в самом вверху
+
+# summary - в самом верху
+fit <- aov(weight.loss, diet.type, data=data)
+summary(fit)
+
+# 1 way ANOVA
+fit <- aov(weight.loss ~ diet.type, data=data)
+summary(fit)
+# 2 way ANOVA
+fit <- aov(weight.loss ~ diet.type + gender, data=data)
+summary(fit)
+
+# means plot of weight lost by diet and gender
+plotmeans(weight.loss ~ diet.type, data=data)
+aggregate(data$weight.loss, by = list(data$diet.type), FUN=sd)
+
+# ANCOVA, C - ковариация
+fit <- aov(weight.loss ~ diet.type + gender + height, data=data)
+summary(fit)
+
